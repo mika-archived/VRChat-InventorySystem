@@ -11,7 +11,7 @@ Experimental Unity Project that provides Inventory System in VRChat.
 
 ## Known Bugs
 
-- When deactivate an item in inventory, will need to pass the check twice.
+- When deactivate an item in your inventory, the item flashed momentarily.
 
 ## References
 
