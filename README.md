@@ -9,6 +9,10 @@ Experimental Unity Project that provides Inventory System in VRChat.
 - Unity 2018.3 or higher
   - This system used new features in Unity 2018.3.
 
+## Known Bugs
+
+- When deactivate an item in inventory, will need to pass the check twice.
+
 ## References
 
 - [Avatars - How to play an animation on particle death.](https://vrcat.club/threads/how-to-play-an-animation-on-particle-death.2993/)
