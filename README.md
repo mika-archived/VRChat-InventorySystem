@@ -2,12 +2,21 @@
 
 Experimental Unity Project that provides Inventory System in VRChat.
 
-> NOTE: THIS PROJECT IS EXPERIMENTAL. PLEASE USE IT AT YOUR OWN RISK.
+> NOTICE: THIS PROJECT IS EXPERIMENTAL. PLEASE USE IT AT YOUR OWN RISK.
 
 ## Requirements
 
 - Unity 2018.3 or higher
   - This system used new features in Unity 2018.3.
+- VRChat 2020.1 or higher
+
+## Note
+
+This prefab is optimized for [Shapell](https://booth.pm/ja/items/1349366) (and other common humanoid avatars).  
+If you want to use a larger/smaller avatar than the common humanoid avatar, change the values to below.
+
+- `(PrefabRoot)/Inventory/Slot[A]_Inventory` - Scale in Transform
+- `(PrefabRoot)/Inventory/Slot[A]_Inventory/Collider` - Radius Scale in Triggers in Particle System
 
 ## Known Bugs
 
