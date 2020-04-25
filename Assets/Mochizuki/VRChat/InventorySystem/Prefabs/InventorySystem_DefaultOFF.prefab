@@ -139,8 +139,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7198398135174021082}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.75, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 1, y: 0, z: 0}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children: []
   m_Father: {fileID: 7198398135839482418}
   m_RootOrder: 2
@@ -282,7 +282,7 @@ Transform:
   m_GameObject: {fileID: 7198398135538869482}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children:
   - {fileID: 7198398136060636667}
   m_Father: {fileID: 7198398136630918680}
@@ -5184,7 +5184,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7198398135839482418}
   m_Layer: 0
-  m_Name: InventorySystem
+  m_Name: InventorySystem_DefaultOFF
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9044,7 +9044,7 @@ ParticleSystem:
     outside: 0
     enter: 1
     exit: 0
-    radiusScale: 1
+    radiusScale: 0.1
   SubModule:
     serializedVersion: 2
     enabled: 1
