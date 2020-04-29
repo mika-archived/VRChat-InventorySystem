@@ -22,6 +22,7 @@ If you want to use a larger/smaller avatar than the common humanoid avatar, chan
 
 - When deactivate an item in your inventory, the item flashed momentarily.
   - This is an issue with the mechanics using and I can't solve it.
+  - The branch `non-blinking-inventory` try to resolve this problem.
 
 ## References
 
