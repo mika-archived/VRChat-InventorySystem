@@ -12,16 +12,42 @@ Experimental Unity Project that provides Inventory System in VRChat.
 
 ## How to use
 
+### Preparation
+
 1. Download UnityPackage from [Releases](https://github.com/mika-f/VRChat-InventorySystem/releases).
 2. Import UnityPackage to your avatar project.
+3. Drag and Drop `InventorySystem_DefaultXXX.prefab` to your hierarchy tree.
+4. Unpack Prefab.
+
+### Configure Collider
+
+1. Move `Slot[X]_InventoryTrigger` to any location on the avatar.
+2. Reset Transform.
+3. Replace `Shims` Sphere to `GameObject` or other objects.
+   - NOTE: The object name must be `Shims`.
+4. Configure Collider-s Triggers in `Particle System`.
+   1. Replace `COLLIDER` in Colliders to your hand.
+5. Delete `COLLIDER` and `INVENTORY_TRIGGERS`.
+
+### Configure Object(s)
+
+1. Move `Slot[X]_InventoryObject` to any location on the avatar.
+   - NOTE: I recommend placing the child of the GameObject that attached Parent Constraint.
+2. Reset Transform.
+3. Move your object to brother of `PUT_YOUR_INVENTORY_ITEM_HERE`.
+4. Delete `PUT_YOUR_INVENTORY_ITEM_HERE` and `INVENTORY_OBJECTS`.
+
+### Cleanup Prefab
+
+1. Delete `InventorySystem_DefaultXXX`.
 
 ## Note
 
 This prefab is optimized for [Shapell](https://booth.pm/ja/items/1349366) (and other common humanoid avatars).  
 If you want to use a larger/smaller avatar than the common humanoid avatar, change the values to below.
 
-- `(PrefabRoot)/INVENTORY_TRIGGERS/Slot[A]_InventoryTrigger` - Scale in Transform
-- `(PrefabRoot)/INVENTORY_TRIGGERS/Slot[A]_InventoryTrigger/Collider` - Radius Scale in Triggers in Particle System
+- `(PrefabRoot)/INVENTORY_TRIGGERS/Slot[X]_InventoryTrigger` - Scale in Transform
+- `(PrefabRoot)/INVENTORY_TRIGGERS/Slot[X]_InventoryTrigger/Collider` - Radius Scale in Triggers in Particle System
 
 ## Known Bugs
 
