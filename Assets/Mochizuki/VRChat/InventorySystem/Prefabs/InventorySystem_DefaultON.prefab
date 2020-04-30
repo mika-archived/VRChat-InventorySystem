@@ -9834,7 +9834,7 @@ GameObject:
   - component: {fileID: 8169336032472569665}
   - component: {fileID: 8169336032472569666}
   m_Layer: 0
-  m_Name: Sphere
+  m_Name: Shims
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
