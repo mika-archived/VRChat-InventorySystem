@@ -58,3 +58,4 @@ If you want to use a larger/smaller avatar than the common humanoid avatar, chan
 - [Avatars - How to play an animation on particle death.](https://vrcat.club/threads/how-to-play-an-animation-on-particle-death.2993/)
 - [Avatars - In-depth guide to animator inventory systems, logic, and syncing!](https://vrcat.club/threads/in-depth-guide-to-animator-inventory-systems-logic-and-syncing-w-unitypackage.2858/)
 - [【Unity】新・Animator の GameObject を非アクティブにするとステートマシンがリセットされる問題の対処法](http://tsubakit1.hateblo.jp/entry/2018/10/04/233000)
+- [Unity Workaround for KeepAnimatorControllerStateOnDisable](https://github.com/mika-sandbox/Unity-KeepAnimatorControllerStateOnDisable)
