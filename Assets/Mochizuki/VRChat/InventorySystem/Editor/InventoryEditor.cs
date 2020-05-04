@@ -15,7 +15,7 @@ namespace Mochizuki.VRChat.InventorySystem
         private Collider _collider;
         private GameObject _object;
         private GameObject _parent;
-        private GameObject _prefabInstance;
+        private GameObject _prefab;
 
         [MenuItem("Mochizuki/VRChat/Inventory Editor")]
         public static void ShowWindow()
@@ -30,7 +30,7 @@ namespace Mochizuki.VRChat.InventorySystem
         {
             EditorGUILayout.Space();
 
-            _prefabInstance = ObjectPicker("Inventory Prefab", _prefabInstance);
+            _prefab = ObjectPicker("Inventory Prefab", _prefab);
 
             EditorGUILayout.Space();
             EditorGUILayout.LabelField("Your Inventory Information:");
@@ -40,7 +40,7 @@ namespace Mochizuki.VRChat.InventorySystem
             _object = ObjectPicker("Object", _object);
             _parent = ObjectPicker("Inventory Parent", _parent);
 
-            EditorGUI.BeginDisabledGroup(_prefabInstance == null || _avatar == null || _collider == null || _object == null || _parent == null);
+            EditorGUI.BeginDisabledGroup(_prefab == null || _avatar == null || _collider == null || _object == null || _parent == null);
 
             if (GUILayout.Button("Unpack and Configure Prefab (Breaking)")) ConfigurePrefab();
 
@@ -54,10 +54,10 @@ namespace Mochizuki.VRChat.InventorySystem
 
         private void ConfigurePrefab()
         {
-            PrefabUtility.UnpackPrefabInstance(_prefabInstance, PrefabUnpackMode.Completely, InteractionMode.AutomatedAction);
+            PrefabUtility.UnpackPrefabInstance(_prefab, PrefabUnpackMode.Completely, InteractionMode.AutomatedAction);
 
             // configure
-            foreach (var transform in _prefabInstance.GetComponentsInChildren<Transform>(true))
+            foreach (var transform in _prefab.GetComponentsInChildren<Transform>(true))
                 switch (transform.name)
                 {
                     case "InventoryObject":
@@ -89,7 +89,7 @@ namespace Mochizuki.VRChat.InventorySystem
                 }
 
             // cleanup
-            DestroyImmediate(_prefabInstance);
+            DestroyImmediate(_prefab);
         }
     }
 }
