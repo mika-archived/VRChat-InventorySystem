@@ -15,30 +15,34 @@ Experimental Unity Project that provides Inventory System in VRChat.
 ### Preparation
 
 1. Download UnityPackage from [Releases](https://github.com/mika-f/VRChat-InventorySystem/releases).
-2. Import UnityPackage to your avatar project.
-3. Drag and Drop `InventorySystem_DefaultXXX.prefab` to your hierarchy tree.
-4. Unpack Prefab.
+1. Import UnityPackage to your avatar project.
+1. Drag and Drop `InventorySystem_DefaultXXX.prefab` to your hierarchy tree.
 
-### Configure Collider
+### Automatically Setup (Recommend)
 
+1. Open `Inventory Editor` from `Mochizuki/VRChat/Inventory Editor` in menubar.
+1. Drag and Drop `InventorySystem_DefaultXXX` into the `Inventory Prefab` field.
+1. Drag and Drop avatar GameObject into the `Avatar` field.
+1. Drag and Drop collider GameObject into the `Collider` field.
+1. Drag and Drop object that you want to in and out into the `Object` field.
+1. Drag and Drop trigger's parent GameObject into the `Parent` field.
+1. Click `Unpack and Configure Prefab (Breaking)`
+
+### Manual Setup
+
+1. Unpack Prefab.
 1. Move `InventoryTrigger` to any location on the avatar.
-2. Reset Transform.
-3. Replace `Shims` Sphere to `GameObject` or other objects.
+1. Reset Transform.
+1. Replace `Shims` Sphere to `GameObject` or other objects.
    - NOTE: The object name must be `Shims`.
-4. Configure Collider-s Triggers in `Particle System`.
+1. Configure Collider-s Triggers in `Particle System`.
    1. Replace `COLLIDER` in Colliders to your hand.
-5. Delete `COLLIDER` and `INVENTORY_TRIGGER`.
-
-### Configure Object(s)
-
+1. Delete `COLLIDER` and `INVENTORY_TRIGGER`.
 1. Move `InventoryObject` to any location on the avatar.
    - NOTE: I recommend placing the child of the GameObject that attached Parent Constraint.
-2. Reset Transform.
-3. Move your object to brother of `PUT_YOUR_INVENTORY_ITEM_HERE`.
-4. Delete `PUT_YOUR_INVENTORY_ITEM_HERE` and `INVENTORY_OBJECT`.
-
-### Cleanup Prefab
-
+1. Reset Transform.
+1. Move your object to brother of `PUT_YOUR_INVENTORY_ITEM_HERE`.
+1. Delete `PUT_YOUR_INVENTORY_ITEM_HERE` and `INVENTORY_OBJECT`.
 1. Delete `InventorySystem_DefaultXXX`.
 
 ## Note
@@ -48,10 +52,6 @@ If you want to use a larger/smaller avatar than the common humanoid avatar, chan
 
 - `(PrefabRoot)/INVENTORY_TRIGGER/InventoryTrigger` - Scale in Transform
 - `(PrefabRoot)/INVENTORY_TRIGGER/InventoryTrigger/Collider` - Radius Scale in Triggers in Particle System
-
-## Known Bugs
-
-- If you want to use Activated to Deactivated Inventory (`DefaultON`), the object must be lazy initialized.
 
 ## References
 
