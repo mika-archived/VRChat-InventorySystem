@@ -53,6 +53,11 @@ If you want to use a larger/smaller avatar than the common humanoid avatar, chan
 - `(PrefabRoot)/INVENTORY_TRIGGER/InventoryTrigger` - Scale in Transform
 - `(PrefabRoot)/INVENTORY_TRIGGER/InventoryTrigger/Collider` - Radius Scale in Triggers in Particle System
 
+## Known Bugs
+
+- Depending on how long it took to initialize, it may appear to be in an incorrect state.
+  - Currently, we have confirmed the symptoms only on Unity Editor
+
 ## References
 
 - [Avatars - How to play an animation on particle death.](https://vrcat.club/threads/how-to-play-an-animation-on-particle-death.2993/)
