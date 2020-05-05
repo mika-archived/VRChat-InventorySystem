@@ -90,6 +90,12 @@ namespace Mochizuki.VRChat.InventorySystem
 
             // cleanup
             DestroyImmediate(_prefab);
+
+            _avatar = null;
+            _collider = null;
+            _object = null;
+            _parent = null;
+            _prefab = null;
         }
     }
 }
