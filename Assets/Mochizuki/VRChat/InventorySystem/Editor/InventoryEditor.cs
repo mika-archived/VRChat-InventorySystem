@@ -11,7 +11,6 @@ namespace Mochizuki.VRChat.InventorySystem
 {
     public class InventoryEditor : EditorWindow
     {
-        private GameObject _avatar;
         private Collider _collider;
         private GameObject _object;
         private GameObject _parent;
@@ -35,12 +34,11 @@ namespace Mochizuki.VRChat.InventorySystem
             EditorGUILayout.Space();
             EditorGUILayout.LabelField("Your Inventory Information:");
 
-            _avatar = ObjectPicker("Avatar", _avatar);
             _collider = ObjectPicker("Collider", _collider);
             _object = ObjectPicker("Object", _object);
             _parent = ObjectPicker("Inventory Parent", _parent);
 
-            EditorGUI.BeginDisabledGroup(_prefab == null || _avatar == null || _collider == null || _object == null || _parent == null);
+            EditorGUI.BeginDisabledGroup(_prefab == null || _collider == null || _object == null || _parent == null);
 
             if (GUILayout.Button("Unpack and Configure Prefab (Breaking)")) ConfigurePrefab();
 
@@ -91,7 +89,6 @@ namespace Mochizuki.VRChat.InventorySystem
             // cleanup
             DestroyImmediate(_prefab);
 
-            _avatar = null;
             _collider = null;
             _object = null;
             _parent = null;
