@@ -21,7 +21,6 @@ Experimental Unity Project that provides Inventory System in VRChat.
 ### Automatically Setup (Recommend)
 
 1. Open `Inventory Editor` from `Mochizuki/VRChat/Inventory Editor` in menubar.
-1. Drag and Drop `InventorySystem_DefaultXXX` into the `Inventory Prefab` field.
 1. Drag and Drop avatar GameObject into the `Avatar` field.
 1. Drag and Drop collider GameObject into the `Collider` field.
 1. Drag and Drop object that you want to in and out into the `Object` field.
