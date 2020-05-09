@@ -10,7 +10,11 @@ Experimental Unity Project that provides Inventory System in VRChat.
   - This system used new features in Unity 2018.3.
 - VRChat 2020.1 or higher
 
-## How to use
+## How to use (Japanese)
+
+https://docs.mochizuki.moe/VRChat/InventorySystem
+
+## How to use (English)
 
 ### Preparation
 
