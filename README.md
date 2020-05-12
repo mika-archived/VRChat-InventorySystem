@@ -18,7 +18,7 @@ https://docs.mochizuki.moe/VRChat/InventorySystem
 
 ### Preparation
 
-1. Download UnityPackage from [Releases](https://github.com/mika-f/VRChat-InventorySystem/releases).
+1. Download UnityPackage from [BOOTH](https://natsuneko.booth.pm/items/2041145) or build by yourself.
 1. Import UnityPackage to your avatar project.
 1. Drag and Drop `InventorySystem_DefaultXXX.prefab` to your hierarchy tree.
 
