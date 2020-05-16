@@ -10,18 +10,21 @@ Experimental Unity Project that provides Inventory System in VRChat.
   - This system used new features in Unity 2018.3.
 - VRChat 2020.1 or higher
 
-## How to use
+## How to use (Japanese)
+
+https://docs.mochizuki.moe/VRChat/InventorySystem
+
+## How to use (English)
 
 ### Preparation
 
-1. Download UnityPackage from [Releases](https://github.com/mika-f/VRChat-InventorySystem/releases).
+1. Download UnityPackage from [BOOTH](https://natsuneko.booth.pm/items/2041145) or build by yourself.
 1. Import UnityPackage to your avatar project.
 1. Drag and Drop `InventorySystem_DefaultXXX.prefab` to your hierarchy tree.
 
 ### Automatically Setup (Recommend)
 
 1. Open `Inventory Editor` from `Mochizuki/VRChat/Inventory Editor` in menubar.
-1. Drag and Drop `InventorySystem_DefaultXXX` into the `Inventory Prefab` field.
 1. Drag and Drop avatar GameObject into the `Avatar` field.
 1. Drag and Drop collider GameObject into the `Collider` field.
 1. Drag and Drop object that you want to in and out into the `Object` field.
