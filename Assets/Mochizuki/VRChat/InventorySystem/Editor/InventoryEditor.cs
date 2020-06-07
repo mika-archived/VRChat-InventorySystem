@@ -34,6 +34,9 @@ namespace Mochizuki.VRChat.InventorySystem
             EditorGUILayout.Space();
             EditorGUILayout.LabelField("Prefab Information : ");
 
+            if (string.IsNullOrWhiteSpace(AssetDatabase.GUIDToAssetPath(DefaultOffPrefabGuid)))
+                _isUseDefaultOnPrefab = true;
+            else
             _isUseDefaultOnPrefab = EditorGUILayout.Toggle(new GUIContent("Use DefaultON Prefab"), _isUseDefaultOnPrefab);
 
             EditorGUI.BeginDisabledGroup(true);
