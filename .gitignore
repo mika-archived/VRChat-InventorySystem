@@ -60,5 +60,7 @@ crashlytics-build.properties
 
 # Imported Assets
 [Aa]ssets/Booth/
+[Aa]ssets/NuGet/
+[Aa]ssets/Packages/
 [Aa]ssets/Udon/
 [Aa]ssets/VRC LABS/
