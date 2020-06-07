@@ -3,6 +3,7 @@
  * Licensed under the MIT License. See LICENSE in the project root for license information.
  *------------------------------------------------------------------------------------------*/
 
+using System.Collections.Generic;
 using System.IO;
 using System.IO.Compression;
 using System.Linq;
@@ -19,7 +20,9 @@ namespace Mochizuki.VRChat.InventorySystem
 {
     public class Packaging : EditorWindow
     {
+        private const string UnityProjectName = "InventorySystem";
         private const string UnityPackageName = "VRChat-InventorySystem.unitypackage";
+        private string _destRoot;
         private string _projectRoot;
         private string _version;
         private string _versionMetaPath;
@@ -34,7 +37,8 @@ namespace Mochizuki.VRChat.InventorySystem
 
         public void OnEnable()
         {
-            _projectRoot = Path.Combine(Application.dataPath, "Mochizuki", "VRChat", "InventorySystem");
+            _destRoot = Path.Combine(Application.dataPath, "Mochizuki", "Packages");
+            _projectRoot = Path.Combine(Application.dataPath, "Mochizuki", "VRChat", UnityProjectName);
             _version = ReadCurrentVersion();
             _versionMetaPath = Path.Combine(_projectRoot, "VERSION");
         }
@@ -54,7 +58,15 @@ namespace Mochizuki.VRChat.InventorySystem
             EditorGUI.BeginDisabledGroup(!isValidNewVersion);
 
             if (GUILayout.Button("Create Deployment Package"))
-                CreatePackage();
+            {
+                EditorUtility.DisplayProgressBar("Creating packages...", "", 0.0f);
+
+                CreateProductionPackage();
+                CreateTrialPackage();
+                WriteNewVersion();
+
+                EditorUtility.ClearProgressBar();
+            }
 
             EditorGUI.EndDisabledGroup();
         }
@@ -63,7 +75,9 @@ namespace Mochizuki.VRChat.InventorySystem
         {
             if (!File.Exists(_versionMetaPath))
                 return "0.0.0";
-            using (var sr = new StreamReader(_versionMetaPath)) return sr.ReadLine();
+
+            using (var sr = new StreamReader(_versionMetaPath))
+                return sr.ReadLine();
         }
 
         private void WriteNewVersion()
@@ -72,31 +86,45 @@ namespace Mochizuki.VRChat.InventorySystem
                 sw.WriteLine(_version);
         }
 
-        private void CreatePackage()
+        private void CreateProductionPackage()
         {
             var assets = Directory.GetFiles(_projectRoot, "*", SearchOption.AllDirectories)
                                   .Where(w => Path.GetExtension(w) != ".meta" && !w.EndsWith("Packaging.cs"))
                                   .Select(w => $"Assets{w.Replace(Application.dataPath, "").Replace("\\", "/")}")
-                                  .ToArray();
+                                  .ToList();
 
-            var destRoot = Path.Combine(Application.dataPath, "Mochizuki", "Packages", $"VRChat-InventorySystem-{_version}");
+            var dest = Path.Combine(_destRoot, $"VRChat-{UnityProjectName}-{_version}");
 
-            if (!Directory.Exists(destRoot))
-                Directory.CreateDirectory(destRoot);
+            CreatePackage(dest, assets);
+        }
 
-            AssetDatabase.ExportPackage(assets, Path.Combine(destRoot, UnityPackageName), ExportPackageOptions.Default);
-            if (File.Exists(Path.Combine(destRoot, "README.txt")))
-                File.Delete(Path.Combine(destRoot, "README.txt"));
-            File.Copy(Path.Combine(_projectRoot, "README.txt"), Path.Combine(destRoot, "README.txt"));
+        private void CreateTrialPackage()
+        {
+            var assets = Directory.GetFiles(_projectRoot, "*", SearchOption.AllDirectories)
+                                  .Where(w => Path.GetExtension(w) != ".meta" && !w.EndsWith("Packaging.cs"))
+                                  .Where(w => !w.Contains("Animation") && !w.Contains("AnimationControllers"))
+                                  .Where(w => !w.EndsWith("InventorySystem_DefaultOFF_V3.prefab"))
+                                  .Select(w => $"Assets{w.Replace(Application.dataPath, "").Replace("\\", "/")}")
+                                  .ToList();
+            var dest = Path.Combine(_destRoot, $"VRChat-{UnityProjectName}-Trial-{_version}");
 
-            WriteNewVersion();
+            CreatePackage(dest, assets);
+        }
 
-            var dest = Path.Combine(Application.dataPath, "Mochizuki", "Packages", $"VRChat-InventorySystem-{_version}.zip");
-            if (File.Exists(dest))
-                File.Delete(dest);
-            ZipFile.CreateFromDirectory(destRoot, dest, CompressionLevel.Optimal, true);
+        private void CreatePackage(string dest, List<string> assets)
+        {
+            if (!Directory.Exists(dest))
+                Directory.CreateDirectory(dest);
 
-            Directory.Delete(destRoot, true);
+            AssetDatabase.ExportPackage(assets.ToArray(), Path.Combine(dest, UnityPackageName), ExportPackageOptions.IncludeDependencies);
+
+            if (File.Exists(Path.Combine(dest, "README.txt")))
+                File.Delete(Path.Combine(dest, "README.txt"));
+            File.Copy(Path.Combine(_projectRoot, "README.txt"), Path.Combine(dest, "README.txt"));
+
+            ZipFile.CreateFromDirectory(dest, $"{dest}.zip", CompressionLevel.Optimal, true);
+
+            Directory.Delete(dest, true);
         }
     }
 }
