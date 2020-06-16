@@ -37,7 +37,7 @@ namespace Mochizuki.VRChat.InventorySystem
             if (string.IsNullOrWhiteSpace(AssetDatabase.GUIDToAssetPath(DefaultOffPrefabGuid)))
                 _isUseDefaultOnPrefab = true;
             else
-            _isUseDefaultOnPrefab = EditorGUILayout.Toggle(new GUIContent("Use DefaultON Prefab"), _isUseDefaultOnPrefab);
+                _isUseDefaultOnPrefab = EditorGUILayout.Toggle(new GUIContent("Use DefaultON Prefab"), _isUseDefaultOnPrefab);
 
             EditorGUI.BeginDisabledGroup(true);
 

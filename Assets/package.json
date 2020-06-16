@@ -1,0 +1,51 @@
+{
+  "name": "VRChat-InventorySystem",
+  "version": "0.1.0d",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mika-f/VRChat-InventorySystem"
+  },
+  "license": "MIT",
+  "moe.mochizuki.unity.packaging": {
+    "output": "Mochizuki/Packages",
+    "variations": [
+      {
+        "name": "",
+        "archive": {
+          "basedir": "Mochizuki/VRChat/InventorySystem",
+          "includes": [
+            "Mochizuki/VRChat/InventorySystem/README.txt"
+          ]
+        },
+        "unitypackage": {
+          "includes": [
+            "Mochizuki/VRChat/InventorySystem/**/*"
+          ],
+          "excludes": [
+            "**/*/Packaging.cs"
+          ]
+        }
+      },
+      {
+        "name": "Trial",
+        "archive": {
+          "basedir": "Mochizuki/VRChat/InventorySystem",
+          "includes": [
+            "Mochizuki/VRChat/InventorySystem/README.txt"
+          ]
+        },
+        "unitypackage": {
+          "includes": [
+            "Mochizuki/VRChat/InventorySystem/**/*"
+          ],
+          "excludes": [
+            "**/*/Packaging.cs",
+            "Mochizuki/VRChat/InventorySystem/Animations/**/*",
+            "Mochizuki/VRChat/InventorySystem/AnimationControllers/**/*",
+            "Mochizuki/VRChat/InventorySystem/Prefabs/InventorySystem_DefaultOFF_V3.prefab"
+          ]
+        }
+      }
+    ]
+  }
+}
